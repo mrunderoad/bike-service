@@ -37,7 +37,10 @@ function getElements(response) {
       let bikeColor = response.bikes[i].frame_colors;      
       let bikeImage = response.bikes[i].thumb;
       let bikeURL = response.bikes[i].url;
-        $('#results').append("<li>" + bikeTitle + "<br>Color: " + bikeColor + "<br><img src="+ bikeImage+ ">" + "<br><a href=" + bikeURL+ ">Click here for more information on this bike</a>");
+       if(bikeImage==="null"){
+        $('.pw').show();
+       }
+      $('#results').append("<li>" + bikeTitle + "<br>Color: " + bikeColor + "<br><a href=" + bikeURL+ "><img src="+ bikeImage+ "></a></li>");
   }
 }
 

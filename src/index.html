@@ -1,20 +1,28 @@
 <html lang="en-US">
 <head>
-  <title>Weather</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abel&family=Cabin:ital@1&family=Dongle:wght@700&family=Exo+2&family=Lobster&family=Merriweather+Sans&family=Montserrat:wght@600&family=Rampart+One&family=Shippori+Antique&family=Zen+Antique&display=swap" rel="stylesheet">
+  <title>Bikes</title>
 </head>
 <body>
   <div class="container">
-    <h1>Get Weather Conditions From Anywhere!</h1>
-    <label for="zipCode">Enter a zip code:</label>
+    <div class="jumbotron">
+    <h1>Stolen Bike Log:</h1>
+    </div>
+    <label class="zip" for="zipCode">Enter a zip code:</label>
     <input id="zipCode" type="text">
+    <br>
     <button class="btn-success" id="bikeZipCode">See information about a bike that was stolen</button>
+    <p>Click on photo for more information!</p>
     <ol id=results>
     
-    </ul>
+    </ol>
     <div class="showErrors"></div>   
     <div class="showTitle"></div>    
     <div class="showColor"></div>
-    <img class="showImage">    
+    <img class="showImage">
+    <img class="pw" src="assets/pee-wee.gif"> 
     <div class="showURL"></div>
   </div>
 </body>
