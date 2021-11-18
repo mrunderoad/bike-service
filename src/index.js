@@ -37,13 +37,13 @@ function getElements(response) {
       let bikeColor = response.bikes[i].frame_colors;      
       let bikeImage = response.bikes[i].thumb;
       let bikeURL = response.bikes[i].url;
-       if(bikeImage==="null"){
-        $('.pw').show();
-       }
+      
+      if(bikeImage===null){
+        bikeImage="assets/images/pee-wee.gif"}
+
       $('#results').append("<li>" + bikeTitle + "<br>Color: " + bikeColor + "<br><a href=" + bikeURL+ "><img src="+ bikeImage+ "></a></li>");
   }
 }
-
 
 $(document).ready(function () {
   $('#bikeZipCode').click(function () {
