@@ -13,28 +13,44 @@ function clearFields() {
   $('#showURL').val("");
 }
 
+// function getElements(response) {
+//   if (response.bikes[0]) {
+//     response.bikes.forEach(function(bike){
+// $('.showTitle').text(`Year and Make: ${bike.title}`);
+//       $('.showColor').text(`Frame Colors: ${bike.frame_colors}`);
+//       $('.showImage').attr('src', bike.thumb);
+//       $('.showURL').html(`Click here if you want to see the full bike page <a href='${bike.url}'>CLICK</a>`)
+//     })
+//     } else {
+//       $('.showErrors').text(`There was an error: ${response.message}`);
+//     }
+//   }
+
+
+
 function getElements(response) {
-  if (response.bikes[0]) {
-    $('.showTitle').text(`Year and Make: ${response.bikes[0].title}`);
-    $('.showColor').text(`Frame Colors: ${response.bikes[0].frame_colors}`);
-    $('.showImage').attr('src', response.bikes[0].thumb);
-    $('.showURL').html(`Click here if you want to see the full bike page <a href='${response.bikes[0].url}'>CLICK</a>`)
-  } else {
-    $('.showErrors').text(`There was an error: ${response.message}`);
+  // let bikeTitle = "";
+  // response.bikes.forEach(function(i){
+    // const bikeList = response.bikes;
+    for(let i=0;i<response.bikes.length; i++) {
+      let bikeTitle = response.bikes[i].title;
+      let bikeColor = response.bikes[i].frame_colors;      
+      let bikeImage = response.bikes[i].thumb;
+      let bikeURL = response.bikes[i].url;
+        $('#results').append("<li>" + bikeTitle + "<br>Color: " + bikeColor + "<br><img src="+ bikeImage+ ">" + "<br><a href=" + bikeURL+ ">Click here for more information on this bike</a>");
   }
 }
 
-$(document).ready(function(){
-  $('#bikeZipCode').click(function(){
-    let zip = $('zipCode').val();
+
+$(document).ready(function () {
+  $('#bikeZipCode').click(function () {
+    let zip = $('#zipCode').val();
+    // console.log(zip);
     clearFields();
     BikeService.getBike(zip)
-      .then(function(response){
+      .then(function (response) {
         getElements(response);
+        // $('#results').append("<li>" + something + "</li>")
       });
   });
 });
-
-//comment
-
-
